@@ -1,0 +1,7 @@
+dependencies {
+    compile 'org.hibernate:hibernate-core:4.3.8.Final'
+    compile 'com.h2database:h2:1.4.190'
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'

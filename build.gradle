@@ -1,0 +1,24 @@
+subprojects{ subProject ->
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+
+    repositories{
+        mavenCentral()
+    }
+
+    dependencies{
+        compile 'junit:junit:4.12'
+        compile 'mysql:mysql-connector-java:5.1.38'
+    }
+}
+
+
+Properties props  = new Properties()
+props.load(new FileInputStream("$project.rootDir/gradle_versions.properties"))
+props.each{prop-> 
+    project.ext.set(prop.key,prop.value)
+}
+
+wrapper {
+    gradleVersion = '2.5'
+}
