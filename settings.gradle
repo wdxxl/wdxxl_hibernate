@@ -1,1 +1,2 @@
 include 'hibernate_4_3_8_brand'
+include 'jpa_entity_manager'

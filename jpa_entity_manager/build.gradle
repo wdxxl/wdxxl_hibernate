@@ -1,0 +1,11 @@
+dependencies {
+    compile 'org.hibernate:hibernate-core:4.3.8.Final'
+    compile 'org.hibernate:hibernate-entitymanager:4.3.8.Final'
+    compile 'org.hibernate:hibernate-jpamodelgen:4.3.8.Final'
+    
+    compile 'com.google.guava:guava:19.0'
+    compile 'com.h2database:h2:1.4.190'
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
