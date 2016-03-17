@@ -8,9 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "brand_synonym")
+@Table(name = "brand_synonym",
+        uniqueConstraints = {@UniqueConstraint(columnNames = {"brand_id", "name", "language"},
+                name = "brand_synonym_name_language")})
 public class BrandSynonym {
     @Id
     @Column(name = "brand_synonym_id")

@@ -21,10 +21,9 @@ import javax.persistence.MapKeyColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderColumn;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "brand", uniqueConstraints = @UniqueConstraint(columnNames = "name") )
+@Table(name = "brand")
 @AttributeOverride(name = "id", column = @Column(name = "brand_id") )
 public class Brand extends TimeStampObject {
 
