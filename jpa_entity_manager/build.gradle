@@ -3,16 +3,31 @@ apply plugin: 'findbugs'
 dependencies {
     compile 'org.hibernate:hibernate-core:4.3.8.Final'
     compile 'org.hibernate:hibernate-entitymanager:4.3.8.Final'
-    //compile 'org.hibernate:hibernate-jpamodelgen:4.3.8.Final'
+    //compile 'org.hibernate:hibernate-jpamodelgen:4.3.8.Final' 
+      //still have issue while generate metamodels. the reason to mute is want right unit test for jpa within same repo
     
     compile 'com.google.guava:guava:19.0'
     compile 'com.h2database:h2:1.4.190'
 }
 
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+//fix when execute "./gradlew findbugsMain" jpa annotation generated metamodel _.java issue.
 findbugs {
     reportsDir = file("$project.buildDir/findbugsReports")
     excludeFilter = file("$projectDir/config/findbugs/excludeFilter.xml")
 }
 
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
+//fix when execute "./gradlew clean test" class and resources not found issue.
+//URL: http://stackoverflow.com/questions/25513788/intellij-cant-find-classpath-test-resource
+task copyTestBean(type: Copy) {
+    from "${buildDir}/classes/main"
+    into "${buildDir}/classes/test"
+}
+task copyTestResources(type: Copy) {
+    from "${projectDir}/src/main/resources"
+    into "${buildDir}/classes/test"
+}
+copyTestResources.dependsOn copyTestBean
+processTestResources.dependsOn copyTestResources

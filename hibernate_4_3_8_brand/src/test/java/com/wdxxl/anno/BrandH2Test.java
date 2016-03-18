@@ -92,7 +92,7 @@ public class BrandH2Test {
 
     private void removeMockData() {
         Transaction tx = session.beginTransaction();
-        // session.delete(brand);
+        session.delete(brand);
         tx.commit();
     }
 
