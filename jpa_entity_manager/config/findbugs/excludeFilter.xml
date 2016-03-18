@@ -1,0 +1,30 @@
+<FindBugsFilter>
+    <Match>
+        <Bug code="EI,EI2" />
+    </Match>
+    
+    <!-- Match>
+        <OR>
+            <Class name="com.wdxxl.model.brand.Brand_"/>
+            <Class name="com.wdxxl.model.brand.BrandSynonym_"/>
+            <Class name="com.wdxxl.model.brand.TimeStampObject_"/>
+            <Class name="com.wdxxl.model.emp.Employee_"/>
+        </OR>
+        <Bug code="UuF"/>
+    </Match-->
+    
+    <!-- Match>
+        <OR>
+            <Class name="~.*\.Brand_"/>
+            <Class name="~.*\.BrandSynonym_"/>
+            <Class name="~.*\.TimeStampObject_"/>
+            <Class name="~.*\.Employee_"/>
+        </OR>
+        <Bug code="UuF"/>
+    </Match-->
+    
+    <Match>
+        <Class name="~.*\.*_"/>
+        <Bug code="UuF"/>
+    </Match>
+</FindBugsFilter>
